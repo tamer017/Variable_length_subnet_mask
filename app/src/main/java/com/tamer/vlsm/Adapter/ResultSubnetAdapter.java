@@ -1,4 +1,4 @@
-package com.tamer.vlsm;
+package com.tamer.vlsm.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.tamer.vlsm.R;
 import com.tamer.vlsm.model.Address;
 
 import java.util.List;

@@ -45,7 +45,7 @@
                     android:id="@+id/subnet_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="@string/enter_subnet_size"
+                    android:hint="@string/enter_subnet_name"
                     android:inputType="none"
                     android:maxLength="10"
                     android:minEms="3"

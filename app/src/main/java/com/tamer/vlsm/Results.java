@@ -7,16 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.Toast;
 
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.tamer.vlsm.Adapter.ResultSubnetAdapter;
 import com.tamer.vlsm.model.Address;
-import com.tamer.vlsm.model.InputSubnet;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Results extends AppCompatActivity {

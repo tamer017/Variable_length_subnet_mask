@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.tamer.vlsm.Adapter.InputSubnetAdapter;
 import com.tamer.vlsm.model.Address;
 import com.tamer.vlsm.model.InputSubnet;
 
@@ -98,17 +99,17 @@ public class MainActivity extends AppCompatActivity {
                         + byte4.getText().toString();
                 int CIDR = Integer.parseInt(cidr.getText().toString());
                 List<Address> addresses = getAddresses(ip,CIDR);
-                Intent intent = new Intent(MainActivity.this, Results.class);
-                intent.putExtra("LIST", (Serializable) addresses);
-                startActivity(intent);
+                if (addresses.size()==0){
+                    Toast.makeText(MainActivity.this,"No enough addresses",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent intent = new Intent(MainActivity.this, Results.class);
+                    intent.putExtra("LIST", (Serializable) addresses);
+                    startActivity(intent);
+                }
             }
         }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 
     // find the number of addresses available per each subnet.
@@ -140,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         int number_of_addresses = availableAddresses(cidr);
         int[] allocated_addresses = allocatedAddresses(required_hosts);
         if (!isValid(number_of_addresses, allocated_addresses))
-            return null;
+            return new ArrayList<>();
         int currentIp = Address.convertQuartetToBinaryString(main_address);
         List<Address> addresses = new ArrayList<Address>();
         for (int i = allocated_addresses.length - 1; i >= 0; i--) {

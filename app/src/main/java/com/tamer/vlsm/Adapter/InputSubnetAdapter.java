@@ -1,4 +1,4 @@
-package com.tamer.vlsm;
+package com.tamer.vlsm.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,9 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.tamer.vlsm.R;
 import com.tamer.vlsm.model.InputSubnet;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class InputSubnetAdapter extends RecyclerView.Adapter<InputSubnetAdapter.InputViewHolder> {
@@ -84,6 +84,7 @@ public class InputSubnetAdapter extends RecyclerView.Adapter<InputSubnetAdapter.
 //            holder.subnet_name.getText().clear();
 //            holder.number_of_hosts.getText().clear();
             inputSubnets.remove(position);
+//            notifyDataSetChanged();
             notifyItemRemoved(position);
             notifyItemRangeChanged(position, inputSubnets.size());
         });
@@ -95,7 +96,7 @@ public class InputSubnetAdapter extends RecyclerView.Adapter<InputSubnetAdapter.
     }
     public void addSubnet(InputSubnet inputSubnet){
         inputSubnets.add(inputSubnet);
-        notifyItemInserted(getItemCount()-1);
+        notifyItemInserted(getItemCount());
     }
     public void setInputSubnet(List<InputSubnet> inputSubnets) {
         this.inputSubnets = inputSubnets;

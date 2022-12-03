@@ -50,5 +50,6 @@
     <string name="add_subnet">Add Subnet</string>
     <string name="enter_network_name">enter subnet name</string>
     <string name="enter_subnet_size">enter subnet size</string>
+    <string name="enter_subnet_name">enter subnet name</string>
 
 </resources>
