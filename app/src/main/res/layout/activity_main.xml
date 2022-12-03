@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="10dp">
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/byte1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/_192"
+            android:inputType="number"
+            android:maxLength="3"
+            android:minWidth="90dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="5dp"
+            android:text="@string/dot"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/byte2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/_168"
+            android:inputType="number"
+            android:maxLength="3"
+            android:minWidth="90dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="5dp"
+            android:text="@string/dot"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/byte3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/_100"
+            android:inputType="number"
+            android:maxLength="3"
+            android:minWidth="90dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxWidth="5dp"
+            android:text="@string/dot"
+            android:textSize="18sp" />
+
+        <EditText
+            android:id="@+id/byte4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/_0"
+            android:inputType="number"
+            android:maxLength="3"
+            android:minWidth="90dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:minWidth="10dp"
+            android:text="@string/slash"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/cidr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/_24"
+            android:inputType="number"
+            android:maxLength="2"
+            android:minWidth="80dp"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/clear_ip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/clear_button"
+            android:minWidth="80dp"
+            android:backgroundTint="#00000000"
+            android:src="@drawable/ic_baseline_backspace_24" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" >
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:backgroundTint="@color/black"
+            android:background="@color/colorAccent"
+            android:text="@string/button_configure_net"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/input_recyclerview"
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
+    android:divider="@drawable/list_item_divider"
+    android:dividerHeight="10.0sp"
+    android:visibility="visible"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+    app:layout_constraintVertical_bias="0.0" >
+</androidx.recyclerview.widget.RecyclerView>
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/add_subnet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_marginBottom="10dp"
+        android:text="@string/add_subnet"
+        android:textColor="#ffffff"
+        app:backgroundTint="@color/black"
+        app:icon="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

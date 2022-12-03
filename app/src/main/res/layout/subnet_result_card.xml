@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="4dp">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        >
+
+        <TextView
+            android:id="@+id/subnet_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_span="2"
+            android:gravity="start"
+            android:minEms="10"
+            android:text="@string/network_name"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        >
+
+        <TextView
+            android:id="@+id/labelNetworkTextView"
+            android:layout_width="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:text="@string/label_network" />
+
+        <TextView
+            android:id="@+id/network_address"
+            android:layout_width="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="fill"
+            android:minEms="10" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <TextView
+            android:id="@+id/labelHostsRangeTextView"
+            android:layout_width="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:text="@string/label_hosts_range" />
+
+        <TextView
+            android:id="@+id/host_range"
+            android:layout_width="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="fill"
+            android:minEms="10"
+
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <TextView
+            android:id="@+id/BroadcastTextView"
+            android:layout_width="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:text="@string/label_Broadcast" />
+
+        <TextView
+            android:id="@+id/broadcast_address"
+            android:layout_width="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="fill"
+            android:minEms="10"
+            />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+        <TextView
+            android:id="@+id/required"
+            android:layout_width="wrap_content"
+            android:layout_column="1"
+            android:layout_gravity="fill"
+            android:layout_span="1"
+            android:minEms="6"
+            android:text="@string/res_net_size_req" />
+
+        <TextView
+
+            android:id="@+id/allocated"
+            android:layout_width="wrap_content"
+            android:layout_column="2"
+            android:layout_gravity="fill"
+            android:minEms="10"
+            android:text="@string/res_net_size_alloc" />
+
+
+    </TableRow>
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        app:dividerColor="@color/black"
+        android:layout_margin="5dp">
+
+    </com.google.android.material.divider.MaterialDivider>
+
+
+</TableLayout>

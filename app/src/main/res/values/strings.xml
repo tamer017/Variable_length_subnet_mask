@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">VLSM Calculator</string>
+    <string name="tab_text_1">Subnet\nCalculator</string>
+    <string name="tab_text_2">VLSM\nCalculator</string>
+    <string name="tab_text_3">Mask\nCalculator</string>
+    <string name="action_settings">Settings</string>
+    <string name="input_label">IPv4 network address</string>
+    <string name="dot">.</string>
+    <string name="slash">/</string>
+
+    <string name="label_network">Network address:</string>
+    <string name="label_subnet_mask">Subnet Mask:</string>
+    <string name="label_hosts_range">Hosts Range:</string>
+    <string name="label_Broadcast">Broadcast address:</string>
+    <string name="label_netSize">Available Hosts:</string>
+    <string name="res_network">%1$s &lt;b> %2$s &lt;/b></string>
+    <string name="res_net_size_req">Required:</string>
+    <string name="res_net_size_alloc">Allocated:</string>
+    <string name="res_net_size_alloca">Allocation:</string>
+
+    <string name="button_configure_net"><u>CONFIGURE NETWORKS</u></string>
+    <string name="button_negative">Cancel</string>
+    <string name="button_positive">Calculate</string>
+    <string name="label_net_conf_d_title">Configure Networks</string>
+    <string name="net_conf_dialog">net_config_dialog</string>
+
+    <string name="hint_net_size">Subnet size</string>
+    <string name="delete_net_button">delete net button</string>
+    <string name="network_name">Subnet name</string>
+    <string name="_192">192</string>
+    <string name="_168">168</string>
+    <string name="_0">0</string>
+    <string name="_100">100</string>
+    <string name="_24">24</string>
+    <string name="clear_button">clear button</string>
+    <string name="wildcard_mask">Wildcard Mask:</string>
+    <string name="mask_cidr">Mask CIDR:</string>
+    <string name="slash_mask">/%1$d</string>
+    <string name="label_subnet_wildcard_mask">Wildcard Mask:</string>
+    <string name="action_about">about</string>
+    <string name="action_ipv4">IPv4</string>
+    <string name="action_vlsm">VLSM</string>
+
+    <string name="ipv4_url">https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipaddr_ipv4/configuration/xe-3s/ipv4-xe-3s-book/configuring_ipv4_addresses.html</string>
+    <string name="vlsm_url">https://www.cisco.com/c/en/us/support/docs/ip/routing-information-protocol-rip/13788-3.html</string>
+    <string name="copyright"> copyright\n  &lt; kowama 2019>\n all right reserved</string>
+    <string name="about">app developed by kowama</string>
+    <string name="add_new_network">Add New Network</string>
+    <string name="homefab">TODO</string>
+    <string name="add_subnet">Add Subnet</string>
+    <string name="enter_network_name">enter subnet name</string>
+    <string name="enter_subnet_size">enter subnet size</string>
+
+</resources>
