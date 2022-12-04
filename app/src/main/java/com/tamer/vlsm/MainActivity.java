@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,8 @@ import com.tamer.vlsm.model.InputSubnet;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -98,7 +101,10 @@ public class MainActivity extends AppCompatActivity {
                         + byte3.getText().toString() + "."
                         + byte4.getText().toString();
                 int CIDR = Integer.parseInt(cidr.getText().toString());
-                List<Address> addresses = getAddresses(ip,CIDR);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        Collections.sort(inputSubnets, Comparator.comparing(InputSubnet::getNeededHosts));
+                    }
+                    List<Address> addresses = getAddresses(ip,CIDR);
                 if (addresses.size()==0){
                     Toast.makeText(MainActivity.this,"No enough addresses",Toast.LENGTH_SHORT).show();
                 }
