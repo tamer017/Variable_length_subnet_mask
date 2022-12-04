@@ -1,5 +1,6 @@
 package com.tamer.vlsm.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,7 @@ public class ResultSubnetAdapter extends RecyclerView.Adapter<ResultSubnetAdapte
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.subnet_result_card, parent, false);
         return new ResultSubnetAdapter.ResultViewHolder(view);    }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ResultSubnetAdapter.ResultViewHolder holder, int position) {
         Address address = addresses.get(position);

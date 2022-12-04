@@ -85,11 +85,11 @@ public class MainActivity extends AppCompatActivity {
                         valid = false;
                         break;
                     }
-                    if (subnet.getNeededHosts() < 2) {
-                        Toast.makeText(MainActivity.this, "For subnet : " + index + " you need to have at least 2 addresses because of the network and broadcast addresses", Toast.LENGTH_LONG).show();
-                        valid = false;
-                        break;
-                    }
+//                    if (subnet.getNeededHosts() < 2) {
+//                        Toast.makeText(MainActivity.this, "For subnet : " + index + " you need to have at least 2 addresses because of the network and broadcast addresses", Toast.LENGTH_LONG).show();
+//                        valid = false;
+//                        break;
+//                    }
 
                 }
                 if (valid) {

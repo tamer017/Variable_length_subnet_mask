@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -21,7 +22,7 @@ import java.util.List;
 
 public class InputSubnetAdapter extends RecyclerView.Adapter<InputSubnetAdapter.InputViewHolder> {
 
-    private Context context;
+    private static Context context;
     private List<InputSubnet> inputSubnets;
 
     public InputSubnetAdapter(Context context, List inputSubnets) {
@@ -34,60 +35,12 @@ public class InputSubnetAdapter extends RecyclerView.Adapter<InputSubnetAdapter.
     @Override
     public InputViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.subnet_input_card, parent, false);
-        return new InputViewHolder(view);
+        return new InputViewHolder(view).linkAdapter(this);
     }
 
     @Override
     public void onBindViewHolder(@NonNull InputViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.subnet_name.addTextChangedListener(new TextWatcher() {
-        @Override
-        public void onTextChanged(CharSequence s, int start,
-                                  int before, int count) {
-            inputSubnets.get(position).setName(s.toString());
-        }
 
-
-        @Override
-        public void beforeTextChanged(CharSequence s, int start,
-                                      int count, int after) {
-
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-
-        }
-        });
-
-        holder.number_of_hosts.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void onTextChanged(CharSequence s, int start,
-                                      int before, int count) {
-                if(count !=0)
-                    inputSubnets.get(position).setNeededHosts(Integer.parseInt(s.toString()));
-            }
-
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start,
-                                          int count, int after) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
-
-        holder.delete.setOnClickListener(view -> {
-//            holder.subnet_name.getText().clear();
-//            holder.number_of_hosts.getText().clear();
-            inputSubnets.remove(position);
-//            notifyDataSetChanged();
-            notifyItemRemoved(position);
-            notifyItemRangeChanged(position, inputSubnets.size());
-        });
     }
 
     @Override
@@ -96,7 +49,7 @@ public class InputSubnetAdapter extends RecyclerView.Adapter<InputSubnetAdapter.
     }
     public void addSubnet(InputSubnet inputSubnet){
         inputSubnets.add(inputSubnet);
-        notifyItemInserted(getItemCount());
+        notifyItemInserted(getItemCount()-1);
     }
     public void setInputSubnet(List<InputSubnet> inputSubnets) {
         this.inputSubnets = inputSubnets;
@@ -106,13 +59,70 @@ public class InputSubnetAdapter extends RecyclerView.Adapter<InputSubnetAdapter.
     public static class InputViewHolder extends RecyclerView.ViewHolder {
         EditText number_of_hosts, subnet_name;
         ImageButton delete;
+        InputSubnetAdapter adapter;
 
         public InputViewHolder(@NonNull View itemView) {
             super(itemView);
             number_of_hosts = itemView.findViewById(R.id.number_of_hosts);
             subnet_name = itemView.findViewById(R.id.subnet_name);
             delete = itemView.findViewById(R.id.delete);
+            subnet_name.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void onTextChanged(CharSequence s, int start,
+                                          int before, int count) {
+                }
+
+
+                @Override
+                public void beforeTextChanged(CharSequence s, int start,
+                                              int count, int after) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    if(getAdapterPosition()>-1)
+                    adapter.inputSubnets.get(getAdapterPosition()).setName(s.toString());
+                }
+            });
+
+            number_of_hosts.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void onTextChanged(CharSequence s, int start,
+                                          int before, int count) {
+                }
+
+
+                @Override
+                public void beforeTextChanged(CharSequence s, int start,
+                                              int count, int after) {
+
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+                    if (!s.toString().isEmpty())
+                            if(getAdapterPosition()>-1)
+                            adapter.inputSubnets.get(getAdapterPosition()).setNeededHosts(Integer.parseInt(s.toString()));
+
+                }
+            });
+
+            delete.setOnClickListener(view -> {
+                if(getAdapterPosition()>-1) {
+                    subnet_name.getText().clear();
+                    number_of_hosts.getText().clear();
+                    System.out.println(getAdapterPosition());
+                    adapter.inputSubnets.remove(getAdapterPosition());
+                    adapter.notifyItemRemoved(getAdapterPosition());
+                }
+
+            });
         }
 
+        public InputViewHolder linkAdapter(InputSubnetAdapter inputSubnetAdapter) {
+            this.adapter = inputSubnetAdapter;
+            return this;
+        }
     }
 }
